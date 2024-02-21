@@ -45,7 +45,7 @@ M.lspconfig = {
 
 M.mine = {
   i = {
-    ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true }}
+    ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true }},
   },
   n = {
     ["<leader>zz"] = {

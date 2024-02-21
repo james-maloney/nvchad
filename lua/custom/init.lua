@@ -32,4 +32,4 @@ end
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = custom_format })
 
 vim.g.copilot_assume_mapped = true
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "kk", 'copilot#Accept("<CR>")', { silent = true, expr = true })
