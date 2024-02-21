@@ -33,6 +33,16 @@ M.general = {
   }
 }
 
+M.lspconfig = {
+  plugin = true,
+  n = {
+    ["gv"] = {
+      "<cmd> :vsplit | lua vim.lsp.buf.definition() <CR>",
+      "LSP definition in split",
+    }
+  }
+}
+
 M.mine = {
   i = {
     ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true }}
@@ -43,10 +53,11 @@ M.mine = {
         require("zen-mode").toggle({
           window   = {
             backdrop = 1,
-            width = 220,
+            width = .5,
             height = .98,
             options = {
-              number = true,
+              number = false,
+              relativenumber = false,
               signcolumn = "no",
             }
           },
@@ -65,6 +76,10 @@ M.mine = {
         require("base46").toggle_transparency()
       end,
       "Toggle Theme Transparency",
+    },
+    ["vp"] = {
+      "`[v`]",
+      "Select pasted text",
     },
   },
 }

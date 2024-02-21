@@ -36,7 +36,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
+    ft = {"go", "ts", "js", "templ", "css"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -93,14 +93,17 @@ local plugins = {
 		end
 	},
   {
-    "tpope/vim-fugitive",
+    "folke/twilight.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
   },
-	{
-		'lewis6991/gitsigns.nvim',
-		config = function()
-			require('gitsigns').setup()
-		end
-	},
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
 	{
 		"folke/trouble.nvim",
     lazy = false,
@@ -112,7 +115,23 @@ local plugins = {
 				-- refer to the configuration section below
 			}
 		end
-	}
+	},
+  {
+  "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },{
+    "github/copilot.vim",
+    lazy = false,
+  }
 }
 
 return plugins

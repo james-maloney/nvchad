@@ -2,8 +2,8 @@
 local M = {}
 
 M.ui = {
-	theme = 'onenord',
-	transparency = false,
+	theme = 'nord',
+	transparency = true,
 }
 M.mappings = require "custom.mappings"
 M.plugins = "custom.plugins"
