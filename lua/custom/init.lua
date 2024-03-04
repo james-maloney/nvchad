@@ -1,14 +1,12 @@
-local function open_nvim_tree()
-  require("nvim-tree.api").tree.open()
-end
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- local function open_nvim_tree()
+--   require("nvim-tree.api").tree.open()
+-- end
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 vim.wo.relativenumber = true
 vim.wo.wrap = false
 
 vim.filetype.add({ extension = { templ = "templ" } })
-
-
 
 local custom_format = function()
     if vim.bo.filetype == "templ" then
@@ -31,5 +29,6 @@ end
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = custom_format })
 
+-- Use 'kk' for accepting copilot suggestions
 vim.g.copilot_assume_mapped = true
 vim.api.nvim_set_keymap("i", "kk", 'copilot#Accept("<CR>")', { silent = true, expr = true })

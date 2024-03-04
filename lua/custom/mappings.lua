@@ -53,11 +53,11 @@ M.mine = {
         require("zen-mode").toggle({
           window   = {
             backdrop = 1,
-            width = .5,
+            width = 300,
             height = .98,
             options = {
               number = false,
-              relativenumber = false,
+              relativenumber = true,
               signcolumn = "no",
             }
           },

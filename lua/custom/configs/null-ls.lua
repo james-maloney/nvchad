@@ -9,7 +9,6 @@ local opts = {
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
-      print("formatting")
       vim.api.nvim_clear_autocmds({
         group = augroup,
         buffer = bufnr,
@@ -18,7 +17,6 @@ local opts = {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          print("Calling format")
           vim.lsp.buf.format({bufnr = bufnr})
         end,
       })
