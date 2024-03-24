@@ -1,11 +1,22 @@
 local plugins = {
   {
-    'rmagatti/auto-session',
-    config = function()
-      require("auto-session").setup {
-        log_level = "error",
-      }
-    end
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = true,
+    lazy = false,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
   },
   {
     "mfussenegger/nvim-lint",
@@ -124,6 +135,10 @@ local plugins = {
     config = function()
       require("zen-mode").setup {}
     end
+  },
+  {
+    "tpope/vim-surround",
+    lazy = false,
   },
   {
     "tpope/vim-fugitive",

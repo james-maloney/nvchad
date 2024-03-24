@@ -3,28 +3,28 @@ local M = {}
 M.general = {
   n = {
     ["<C-h>"] = {
-      function ()
+      function()
         local nvim_tmux_nav = require('nvim-tmux-navigation')
         nvim_tmux_nav.NvimTmuxNavigateLeft()
       end,
       "Window left",
     },
     ["<C-l>"] = {
-      function ()
+      function()
         local nvim_tmux_nav = require('nvim-tmux-navigation')
         nvim_tmux_nav.NvimTmuxNavigateRight()
       end,
       "Window right",
     },
     ["<C-j>"] = {
-      function ()
+      function()
         local nvim_tmux_nav = require('nvim-tmux-navigation')
         nvim_tmux_nav.NvimTmuxNavigateDown()
       end,
       "Window down",
     },
     ["<C-k>"] = {
-      function ()
+      function()
         local nvim_tmux_nav = require('nvim-tmux-navigation')
         nvim_tmux_nav.NvimTmuxNavigateUp()
       end,
@@ -45,11 +45,15 @@ M.lspconfig = {
 
 M.mine = {
   i = {
-    ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true }},
+    ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
   },
   n = {
+    ["<leader>m"] = {
+      "<cmd> Neogit <CR>",
+      "Neogit",
+    },
     ["<leader>zz"] = {
-      function ()
+      function()
         require("zen-mode").toggle({
           window   = {
             backdrop = 1,
@@ -62,7 +66,7 @@ M.mine = {
             }
           },
           on_open  = function(_)
-             -- os.execute("gohome ex on -n 'Big Guest Room Savanna sunset'")
+            -- os.execute("gohome ex on -n 'Big Guest Room Savanna sunset'")
           end,
           on_close = function()
             -- os.execute("gohome ex on -n 'Big Guest Room Bright'")
@@ -72,7 +76,7 @@ M.mine = {
       end,
     },
     ["<leader>tt"] = {
-      function ()
+      function()
         require("base46").toggle_transparency()
       end,
       "Toggle Theme Transparency",
@@ -103,7 +107,7 @@ M.dap = {
       "Add breakpoint at line"
     },
     ["<leader>dus"] = {
-      function ()
+      function()
         local widgets = require("dap.ui.widgets");
         local sidebar = widgets.sidebar(widgets.scopes);
         sidebar.open();
@@ -116,43 +120,43 @@ M.dap = {
 
 M.harpoon = {
   n = {
-     ["<leader>z"] = {
-      function ()
+    ["<leader>z"] = {
+      function()
         local harpoon = require "harpoon"
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
       "󱠿 Harpoon Menu",
     },
     ["<leader>a"] = {
-      function ()
+      function()
         local harpoon = require "harpoon"
         harpoon:list():append()
       end,
       "󱡁 Harpoon Add file",
     },
     ["<leader>j"] = {
-      function ()
+      function()
         local harpoon = require "harpoon"
         harpoon:list():select(1)
       end,
       "󱡁 Navigate to file 1",
     },
     ["<leader>k"] = {
-      function ()
+      function()
         local harpoon = require "harpoon"
         harpoon:list():select(2)
       end,
       "󱡁 Navigate to file 2",
     },
     ["<leader>l"] = {
-      function ()
+      function()
         local harpoon = require "harpoon"
         harpoon:list():select(3)
       end,
       "󱡁 Navigate to file 3",
     },
     ["<leader>;"] = {
-      function ()
+      function()
         local harpoon = require "harpoon"
         harpoon:list():select(4)
       end,
@@ -166,13 +170,13 @@ M.dap_go = {
   plugin = true,
   n = {
     ["<leader>dgt"] = {
-      function ()
+      function()
         require("dap-go").debug_test()
       end,
       "Debug Go test"
     },
     ["<leader>dgl"] = {
-      function ()
+      function()
         require("dap-go").debug_last()
       end,
       "Debug last go test"

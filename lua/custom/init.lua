@@ -32,3 +32,5 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callba
 -- Use 'kk' for accepting copilot suggestions
 vim.g.copilot_assume_mapped = true
 vim.api.nvim_set_keymap("i", "kk", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+vim.opt.undofile = false
